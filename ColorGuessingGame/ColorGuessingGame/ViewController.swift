@@ -9,7 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
+    @IBOutlet weak var winorLose: UILabel!
     @IBOutlet weak var red: UIButton!
     
     @IBOutlet weak var green: UIButton!
@@ -18,29 +19,91 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var generatedColorView: UIView!
     
+    @IBOutlet weak var highestScore: UILabel!
+    
+    @IBOutlet weak var yourScore: UILabel!
+    
+    var colorgenerated = rgbValue()
+    
+    
     override func viewDidLoad() {
-         super.viewDidLoad()
-         // Do any additional setup after loading the view.
-     }
+        super.viewDidLoad()
+        generatedColorView.backgroundColor = colorgenerated.rgbColor()
+        
+        // this is changes the color of the letters
+        // red.setTitleColor(UIColor.red, for: .normal)
+        // green.setTitleColor(UIColor.green, for: .normal)
+        // blue.setTitleColor(UIColor.blue, for: .normal)
+        // if i want to code the background color i can
+        //red.backgroundColor = .red
+        
+        //sintactic sugar .red instead of UIcolor.red
+        
+    }
     
     @IBAction func newGame(_ sender: UIButton) {
-//        let randomColor = Int.random(in: 0...2)
-//        switch sender.tag {
-//        case randomColor == generatedColorView
-//            print(
-//
-//        default:
-//            print("default")
-//        }
-//        let randomColor.tag
-//        let randomColorSelection = randomColor.randomElement()
-//        if randomColorSelection == 0 {
-//            generatedColorView.backgroundColor = .red
-//
-//        }
-//    }
-
-
+        
+        
+        
+    }
+    var score = 0
+    var highscore = 0
+    func scoregenerator() {
+        score += 1
+    }
+    
+    
+    
+    @IBAction func colorButton(_ sender: UIButton) {
+        switch sender.tag {
+        case 0:
+            if colorgenerated.highestRgbValue() == colorgenerated.red {
+                // I had to create a function in order to call it in this function and it can start adding 1 to the score everytime they win
+                scoregenerator()
+                winorLose.text = "You Won !"
+                highestScore.text = " "
+                yourScore.text = "current score \(score)"
+                generatedColorView.backgroundColor = colorgenerated.rgbColor()
+            } else {
+                winorLose.text = "You Lost !"
+                [red, green, blue].forEach({$0?.isEnabled = false})
+            }
+        case 1:
+            if colorgenerated.highestRgbValue() == colorgenerated.green {
+                // I had to create a function in order to call it in this function and it can start adding 1 to the score everytime they win
+                scoregenerator()
+                winorLose.text = "You Won !"
+                highestScore.text = " "
+                yourScore.text = "current score \(score)"
+                generatedColorView.backgroundColor = colorgenerated.rgbColor()
+            } else {
+                winorLose.text = "You Lost !"
+                [red, green, blue].forEach({$0?.isEnabled = false})
+                
+            }
+        case 2:
+            if colorgenerated.highestRgbValue() == colorgenerated.blue {
+                // I had to create a function in order to call it in this function and it can start adding 1 to the score everytime they win
+                scoregenerator()
+                winorLose.text = "You Won !"
+                highestScore.text = " "
+                yourScore.text = "current score \(score)"
+                generatedColorView.backgroundColor = colorgenerated.rgbColor()
+            } else {
+                winorLose.text = "You Lost !"
+                [red, green, blue].forEach({$0?.isEnabled = false})
+                
+            }
+        default:
+            print("default")
+        }
+    }
+    
+    
+    
+    
+    
 }
 
-}
+
+
