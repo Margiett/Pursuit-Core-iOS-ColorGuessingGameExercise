@@ -32,6 +32,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         generatedColorView.backgroundColor = colorgenerated.rgbColor()
+        newGamelabel.isHidden = true
         
         // this is changes the color of the letters
         // red.setTitleColor(UIColor.red, for: .normal)
@@ -50,9 +51,11 @@ class ViewController: UIViewController {
         // set view background color
         score = 0
         [red, green, blue].forEach({$0?.isEnabled = true})
+        colorgenerated = rgbValue()
         //this is setting a new color to the new UIview
         generatedColorView.backgroundColor = colorgenerated.rgbColor()
         yourScore.text = "current score \(score)"
+        winorLose.text = " "
         newGamelabel.isHidden = true
     }
     
