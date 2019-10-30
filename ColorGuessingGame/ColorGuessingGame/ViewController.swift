@@ -9,6 +9,8 @@
 import UIKit
 
 class ViewController: UIViewController {
+    var score = 0
+    var highscore = 0
     
     @IBOutlet weak var winorLose: UILabel!
     @IBOutlet weak var red: UIButton!
@@ -40,20 +42,23 @@ class ViewController: UIViewController {
         //sintactic sugar .red instead of UIcolor.red
         
     }
-    
+    //MARK: New Game
     @IBAction func newGame(_ sender: UIButton) {
-        
-        
-        
+        // set score back to zero
+        // enable all button
+        // set view background color
+        score = 0
+        [red, green, blue].forEach({$0?.isEnabled = true})
+        //this is setting a new color to the new UIview
+        generatedColorView.backgroundColor = colorgenerated.rgbColor()
+        yourScore.text = "current score \(score)"
     }
-    var score = 0
-    var highscore = 0
+    
     func scoregenerator() {
         score += 1
     }
     
-    
-    
+    // MARK: Color Button
     @IBAction func colorButton(_ sender: UIButton) {
         switch sender.tag {
         case 0:
@@ -63,7 +68,12 @@ class ViewController: UIViewController {
                 winorLose.text = "You Won !"
                 highestScore.text = " "
                 yourScore.text = "current score \(score)"
+                // this is gernrating a random color and resigning to the veriable
+                colorgenerated = rgbValue()
                 generatedColorView.backgroundColor = colorgenerated.rgbColor()
+                
+                
+                
             } else {
                 winorLose.text = "You Lost !"
                 [red, green, blue].forEach({$0?.isEnabled = false})
@@ -75,6 +85,7 @@ class ViewController: UIViewController {
                 winorLose.text = "You Won !"
                 highestScore.text = " "
                 yourScore.text = "current score \(score)"
+                colorgenerated = rgbValue()
                 generatedColorView.backgroundColor = colorgenerated.rgbColor()
             } else {
                 winorLose.text = "You Lost !"
@@ -88,6 +99,7 @@ class ViewController: UIViewController {
                 winorLose.text = "You Won !"
                 highestScore.text = " "
                 yourScore.text = "current score \(score)"
+                colorgenerated = rgbValue()
                 generatedColorView.backgroundColor = colorgenerated.rgbColor()
             } else {
                 winorLose.text = "You Lost !"
