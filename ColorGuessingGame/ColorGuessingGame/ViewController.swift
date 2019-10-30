@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var winorLose: UILabel!
     @IBOutlet weak var red: UIButton!
     
+    @IBOutlet weak var newGamelabel: UIButton!
     @IBOutlet weak var green: UIButton!
     
     @IBOutlet weak var blue: UIButton!
@@ -52,6 +53,7 @@ class ViewController: UIViewController {
         //this is setting a new color to the new UIview
         generatedColorView.backgroundColor = colorgenerated.rgbColor()
         yourScore.text = "current score \(score)"
+        newGamelabel.isHidden = true
     }
     
     func scoregenerator() {
@@ -72,11 +74,10 @@ class ViewController: UIViewController {
                 colorgenerated = rgbValue()
                 generatedColorView.backgroundColor = colorgenerated.rgbColor()
                 
-                
-                
             } else {
                 winorLose.text = "You Lost !"
                 [red, green, blue].forEach({$0?.isEnabled = false})
+                newGamelabel.isHidden = false
             }
         case 1:
             if colorgenerated.highestRgbValue() == colorgenerated.green {
@@ -90,6 +91,7 @@ class ViewController: UIViewController {
             } else {
                 winorLose.text = "You Lost !"
                 [red, green, blue].forEach({$0?.isEnabled = false})
+                newGamelabel.isHidden = false
                 
             }
         case 2:
@@ -104,6 +106,7 @@ class ViewController: UIViewController {
             } else {
                 winorLose.text = "You Lost !"
                 [red, green, blue].forEach({$0?.isEnabled = false})
+                newGamelabel.isHidden = false
                 
             }
         default:
@@ -117,5 +120,5 @@ class ViewController: UIViewController {
     
 }
 
-
+// inside the else you want to do the isHidden = false in the new game .isHidden = true
 

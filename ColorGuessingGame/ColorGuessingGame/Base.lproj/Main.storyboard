@@ -105,6 +105,7 @@
                         <outlet property="generatedColorView" destination="uf7-ol-8oU" id="eRQ-uQ-sgr"/>
                         <outlet property="green" destination="yOl-ue-SfZ" id="SrF-ny-7Nj"/>
                         <outlet property="highestScore" destination="6zQ-ba-cbX" id="Mcf-6S-6Vo"/>
+                        <outlet property="newGamelabel" destination="rEd-8d-aJp" id="fLe-v8-iBg"/>
                         <outlet property="red" destination="L5E-jT-zxb" id="PBG-X0-O1m"/>
                         <outlet property="winorLose" destination="w56-GH-fD3" id="ieD-RD-kEh"/>
                         <outlet property="yourScore" destination="xi9-dm-QIs" id="Vxk-nf-8s8"/>
