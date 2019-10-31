@@ -15,6 +15,7 @@ struct rgbValue {
     var blue = CGFloat.random(in: 0...1)
     let alpha = CGFloat(1)
     
+    // this is creating the colors
     func rgbColor() -> UIColor {
         let randomColor = UIColor(red: red, green: green, blue: blue, alpha: alpha)
         
@@ -24,6 +25,7 @@ struct rgbValue {
     }
     func highestRgbValue () -> CGFloat {
         // if the color does not change, change the let to var
+        // this is sorting the colors by the highest to lowest color percentage
         let sortedColor =  [red, blue, green].sorted(by:{$0 > $1})
         return sortedColor[0]
     }

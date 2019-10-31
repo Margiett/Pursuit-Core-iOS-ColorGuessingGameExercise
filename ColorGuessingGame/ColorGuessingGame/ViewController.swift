@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController {
     var score = 0
-    var highscore = 0
+    var highScore = 0
     
     @IBOutlet weak var winorLose: UILabel!
     @IBOutlet weak var red: UIButton!
@@ -33,6 +33,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         generatedColorView.backgroundColor = colorgenerated.rgbColor()
         newGamelabel.isHidden = true
+        
         
         // this is changes the color of the letters
         // red.setTitleColor(UIColor.red, for: .normal)
@@ -71,8 +72,12 @@ class ViewController: UIViewController {
                 // I had to create a function in order to call it in this function and it can start adding 1 to the score everytime they win
                 scoregenerator()
                 winorLose.text = "You Won !"
-                highestScore.text = " "
+               
                 yourScore.text = "current score \(score)"
+                if score > highScore {
+                    highScore = score
+                highestScore.text = "Highest Score : \(highScore)"
+                }
                 // this is gernrating a random color and resigning to the veriable
                 colorgenerated = rgbValue()
                 generatedColorView.backgroundColor = colorgenerated.rgbColor()
@@ -87,7 +92,12 @@ class ViewController: UIViewController {
                 // I had to create a function in order to call it in this function and it can start adding 1 to the score everytime they win
                 scoregenerator()
                 winorLose.text = "You Won !"
-                highestScore.text = " "
+       
+                       yourScore.text = "current score \(score)"
+                       if score > highScore {
+                           highScore = score
+                     highestScore.text = "Highest Score : \(highScore)"
+                       }
                 yourScore.text = "current score \(score)"
                 colorgenerated = rgbValue()
                 generatedColorView.backgroundColor = colorgenerated.rgbColor()
@@ -102,26 +112,36 @@ class ViewController: UIViewController {
                 // I had to create a function in order to call it in this function and it can start adding 1 to the score everytime they win
                 scoregenerator()
                 winorLose.text = "You Won !"
-                highestScore.text = " "
+   
+                   yourScore.text = "current score \(score)"
+                   if score > highScore {
+                       highScore = score
+                     highestScore.text = "Highest Score : \(highScore)"
+                }
+                   
                 yourScore.text = "current score \(score)"
+                // resigning the instances of the struct to my veriable = colorgenerated
                 colorgenerated = rgbValue()
+                // this is giving a random color to the UIview
                 generatedColorView.backgroundColor = colorgenerated.rgbColor()
             } else {
                 winorLose.text = "You Lost !"
                 [red, green, blue].forEach({$0?.isEnabled = false})
                 newGamelabel.isHidden = false
-                
-            }
-        default:
-            print("default")
+        
         }
+            default:
+              print("default")
+              
     }
     
-    
-    
+  
     
     
 }
 
 // inside the else you want to do the isHidden = false in the new game .isHidden = true
+
+// highest, score need a new variable 
+}
 
