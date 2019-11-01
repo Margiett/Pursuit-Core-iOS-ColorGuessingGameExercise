@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var score = 0
     var highScore = 0
     
+    @IBOutlet weak var encouragement: UILabel!
     @IBOutlet weak var winorLose: UILabel!
     @IBOutlet weak var red: UIButton!
     
@@ -55,9 +56,10 @@ class ViewController: UIViewController {
         colorgenerated = rgbValue()
         //this is setting a new color to the new UIview
         generatedColorView.backgroundColor = colorgenerated.rgbColor()
-        yourScore.text = "current score \(score)"
+        yourScore.text = "Current score \(score)"
         winorLose.text = " "
         newGamelabel.isHidden = true
+       
     }
     
     func scoregenerator() {
@@ -70,62 +72,74 @@ class ViewController: UIViewController {
         case 0:
             if colorgenerated.highestRgbValue() == colorgenerated.red {
                 // I had to create a function in order to call it in this function and it can start adding 1 to the score everytime they win
+                
                 scoregenerator()
-                winorLose.text = "You Won !"
+                encouragement.text = "W O W YOUR'RE A W S O M E"
+               //winorLose.text = "You're A Winner🎖"
                
-                yourScore.text = "current score \(score)"
+                yourScore.text = "Current Score \(score)"
                 if score > highScore {
-                    highScore = score
-                highestScore.text = "Highest Score : \(highScore)"
-                }
+                                   highScore = score
+                               highestScore.text = "Highest Score : \(highScore)"
+                               }
                 // this is gernrating a random color and resigning to the veriable
                 colorgenerated = rgbValue()
                 generatedColorView.backgroundColor = colorgenerated.rgbColor()
                 
             } else {
-                winorLose.text = "You Lost !"
+                encouragement.text = "Sorry Try Again 😔"
+                winorLose.text = "You Lost ☹️"
                 [red, green, blue].forEach({$0?.isEnabled = false})
                 newGamelabel.isHidden = false
             }
         case 1:
             if colorgenerated.highestRgbValue() == colorgenerated.green {
+               
                 // I had to create a function in order to call it in this function and it can start adding 1 to the score everytime they win
                 scoregenerator()
-                winorLose.text = "You Won !"
+                encouragement.text = "W O W MiND BlOWiNG 🤯"
+            
+                //winorLose.text = "You're A Winner🎖"
        
-                       yourScore.text = "current score \(score)"
-                       if score > highScore {
-                           highScore = score
-                     highestScore.text = "Highest Score : \(highScore)"
-                       }
-                yourScore.text = "current score \(score)"
+                       yourScore.text = "Current Score \(score)"
+                     if score > highScore {
+                                        highScore = score
+                                    highestScore.text = "Highest Score : \(highScore)"
+                                    }
+                yourScore.text = "Current Score \(score)"
                 colorgenerated = rgbValue()
                 generatedColorView.backgroundColor = colorgenerated.rgbColor()
             } else {
-                winorLose.text = "You Lost !"
+                encouragement.text = "You'll Do Better Next Time"
+                winorLose.text = "You Lost ☹️"
                 [red, green, blue].forEach({$0?.isEnabled = false})
                 newGamelabel.isHidden = false
                 
             }
         case 2:
             if colorgenerated.highestRgbValue() == colorgenerated.blue {
+               
                 // I had to create a function in order to call it in this function and it can start adding 1 to the score everytime they win
+                
                 scoregenerator()
-                winorLose.text = "You Won !"
+                encouragement.text = "A M A Z I N G 🤩"
+             
+                //winorLose.text = "You're A Winner🎖"
    
-                   yourScore.text = "current score \(score)"
-                   if score > highScore {
-                       highScore = score
-                     highestScore.text = "Highest Score : \(highScore)"
-                }
+                   yourScore.text = "Current Score \(score)"
+               if score > highScore {
+                                  highScore = score
+                              highestScore.text = "Highest Score : \(highScore)"
+                              }
                    
-                yourScore.text = "current score \(score)"
+                yourScore.text = "Current Score \(score)"
                 // resigning the instances of the struct to my veriable = colorgenerated
                 colorgenerated = rgbValue()
                 // this is giving a random color to the UIview
                 generatedColorView.backgroundColor = colorgenerated.rgbColor()
             } else {
-                winorLose.text = "You Lost !"
+                encouragement.text = "Maybe Next Time 😕"
+                winorLose.text = "You Lost ☹️"
                 [red, green, blue].forEach({$0?.isEnabled = false})
                 newGamelabel.isHidden = false
         
